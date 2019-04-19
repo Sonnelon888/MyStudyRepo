@@ -18,6 +18,7 @@ public class TextReader {
             while (scanner.hasNextLine()){
                 System.out.println(scanner.nextLine());
             }
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

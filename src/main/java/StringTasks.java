@@ -25,6 +25,7 @@ public class StringTasks {
         System.out.println("Введите строку для удаления пробелов: ");
         try {
             secondResult  = reader.readLine().replaceAll(" ","");
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

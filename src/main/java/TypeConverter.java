@@ -17,6 +17,7 @@ public class TypeConverter {
         System.out.println("Введите число: ");
         try {
             S  = reader.readLine();
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

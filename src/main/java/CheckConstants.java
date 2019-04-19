@@ -10,6 +10,7 @@ public class CheckConstants {
     public static void main(String[] args) {
         System.out.println("Введите значение для переменной T:");
         T = scanner.nextInt();
+        scanner.close();
         if ((X == T) || (Y == T) || (Z == T)) {
             System.out.println("Данное значение имеется в константах");
         } else

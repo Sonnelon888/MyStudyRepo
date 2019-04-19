@@ -20,6 +20,7 @@ public class MultiTable {
                 "\n"+ input + " x 8 = " + input * 8 +
                 "\n"+ input + " x 9 = " + input * 9 +
                 "\n"+ input + " x 10 = " + input * 10 );
+        scanner.close();
     }
 
     public static void main(String[] args) {
