@@ -22,7 +22,7 @@ public class TextWriter {
             BufferedWriter bufferedWriter = new BufferedWriter(fileReader);
             System.out.println(
                     "Введите текст файла, который хотите записать, по окончании ввода" +
-                            " текста введите команду СТОП с новой строки и нажмите ENTER");
+                            " текста \n введите команду СТОП с новой строки и нажмите ENTER");
             while (!
                     (textToFile = reader.readLine())
                             .equals("СТОП")) {
