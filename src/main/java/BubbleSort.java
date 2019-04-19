@@ -31,6 +31,7 @@ public class BubbleSort {
         for (int i = 0; i < sort.length; i++) {
             sort[i] = Integer.parseInt(line[i]);
         }
+        reader.close();
         return sort;
     }
 
