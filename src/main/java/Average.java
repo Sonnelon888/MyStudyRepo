@@ -8,7 +8,7 @@ public class Average {
     public void getArithmeticAverage() {
         System.out.println("Введите числа в одну строку через пробел, нажмите ENTER" +
                 " и введите маркер \"конец файла\"\n" +
-                " Win = Ctrl + Z, Unix & MacOs = Ctrl + D :");
+                " Ctrl + D :");
         while (scanner.hasNextInt()) {
             i++;
             arithmeticAverage += scanner.nextInt();
