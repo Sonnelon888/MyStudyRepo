@@ -1,25 +1,24 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 public class ArrayDouble {
+    private String[] array;
 
-    private String[] getData() {
+    private void getData() {
         try (BufferedReader reader =
                      new BufferedReader(
                              new InputStreamReader(
                                      System.in))) {
 
             System.out.println("Введите числа через пробел, нажмите ENTER:");
-            return (reader.readLine().split(" "));
+            array = (reader.readLine().split(" "));
         } catch (IOException | NullPointerException | Error e) {
             e.printStackTrace();
         }
-        return null;
     }
 
-    private void printDoubleResult(String[] array) {
+    private void printDoubleResult() {
         for (String i : array) {
             System.out.println(Integer.valueOf(i) * 2);
         }
@@ -27,8 +26,7 @@ public class ArrayDouble {
 
     public static void main(String[] args) {
         ArrayDouble ar = new ArrayDouble();
-        ar.printDoubleResult(
-                Objects.requireNonNull(
-                        ar.getData()));
+        ar.getData();
+        ar.printDoubleResult();
     }
 }
