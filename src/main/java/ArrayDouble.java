@@ -1,22 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class ArrayDouble {
-    private static Scanner scanner = new Scanner(System.in);
-    private static List<Integer> array = new ArrayList<Integer>();
+
+    private String[] getData() {
+        try (BufferedReader reader =
+                     new BufferedReader(
+                             new InputStreamReader(
+                                     System.in))) {
+
+            System.out.println("Введите числа через пробел, нажмите ENTER:");
+            return (reader.readLine().split(" "));
+        } catch (IOException | NullPointerException | Error e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void printDoubleResult(String[] array) {
+        for (String i : array) {
+            System.out.println(Integer.valueOf(i) * 2);
+        }
+    }
 
     public static void main(String[] args) {
-
-        System.out.println("Введите числа в одну строку через пробел, нажмите ENTER" +
-                " и введите маркер \"конец файла\"\n" +
-                " Ctrl + D :");
-        while (scanner.hasNextInt()) {
-            array.add(scanner.nextInt());
-        }
-        scanner.close();
-        for (int i : array) {
-            System.out.println(i * 2);
-        }
+        ArrayDouble ar = new ArrayDouble();
+        ar.printDoubleResult(
+                Objects.requireNonNull(
+                        ar.getData()));
     }
 }
