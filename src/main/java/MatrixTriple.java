@@ -1,40 +1,35 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MatrixTriple {
-    private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private List<List<String>> array = new ArrayList<List<String>>();
-    private String result = "";
+    private String[][] array;
 
-    public void getMatrixFromUser() throws IOException {
-        System.out.println("Введите колличество строк, содержащихся в матрице:");
-        int i = Integer.parseInt(reader.readLine());
-        System.out.println("Введите матрицу в виде строк :");
-        for (int x = 0; x < i; x++) {
-            array.add(Arrays.asList(reader.readLine().split(" ")));
+    private void getMatrixFromUser() {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Введите колличество строк, содержащихся в матрице:");
+            int matrixStringCount = Integer.parseInt(reader.readLine());
+            array = new String[matrixStringCount][];
+            System.out.println("Введите матрицу в виде строк :");
+            for (int i = 0; i < matrixStringCount; i++) {
+                array[i] = (reader.readLine().split(" "));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        reader.close();
     }
 
-    public void printTripleFirstLine() {
-        for (String i : array.get(0)) {
-            result += (Integer.parseInt(i) * 3) + " ";
+    private void printTripleFirstLine() {
+        StringBuilder result = new StringBuilder();
+        for (String s : array[0]) {
+            result.append(Integer.parseInt(s) * 3).append(" ");
         }
         System.out.println(result);
     }
 
-
     public static void main(String[] args) {
         MatrixTriple matrix = new MatrixTriple();
-        try {
-            matrix.getMatrixFromUser();
-            matrix.printTripleFirstLine();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        matrix.getMatrixFromUser();
+        matrix.printTripleFirstLine();
     }
 }
