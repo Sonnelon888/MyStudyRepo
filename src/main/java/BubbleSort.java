@@ -27,9 +27,14 @@ public class BubbleSort {
         int arrayLength = Integer.parseInt(reader.readLine());
         int[] sort = new int[arrayLength];
         System.out.println("Введите массив чисел через пробел для сортировки: ");
-        String[] line = reader.readLine().split(" ");
-        for (int i = 0; i < sort.length; i++) {
-            sort[i] = Integer.parseInt(line[i]);
+        try {
+            String[] line = reader.readLine().split(" ", arrayLength);
+            for (int i = 0; i < sort.length; i++) {
+                sort[i] = Integer.parseInt(line[i]);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Введеное количество чисел не совпадает с указанным");
+            System.exit(-1);
         }
         reader.close();
         return sort;
