@@ -8,6 +8,10 @@ public class ArraySort {
             new InputStreamReader(System.in));
     private Integer[] arraySort;
 
+    public Integer[] getArraySort() {
+        return arraySort;
+    }
+
     private ArraySort(Integer[] arraySort) {
         this.arraySort = arraySort;
     }
@@ -62,7 +66,7 @@ public class ArraySort {
         try {
             System.out.println(String
                     .format("Результат сортировки: %s",
-                            Arrays.toString(as.getArrayFromUser().sortArray().arraySort)));
+                            Arrays.toString(as.getArrayFromUser().sortArray().getArraySort())));
 
         } catch (IOException e) {
             System.out.println("Возникла ошибка при обработке входных данных!");
